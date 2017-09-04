@@ -39,14 +39,18 @@
 				<ref bean="ep37" />
 			</util:list>
 		</property>
-		<property name="cotisationsImposables">
-			<util:list value-type="dev.paie.entite.Cotisation">
-				<ref bean="sp01" />
-				<ref bean="sp02" />
-			</util:list>
-		</property>
+		<property name="cotisationsImposables" ref="listeImposables"> </property>
 	</bean>
 
+	<bean id="listeImposables" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="sp01" />
+				<ref bean="sp02" />
+			</list>
+		</constructor-arg>
+	</bean>
+	
 	<bean id="entreprise1" class="dev.paie.entite.Entreprise">
 		<property name="siret" value="80966785000022" />
 		<property name="denomination" value="Dev Entreprise" />
