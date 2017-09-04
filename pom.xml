@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev</groupId>
-	<artifactId>spring_tp1_sirh-gestion-paie</artifactId>
+	<artifactId>spring_tp2_sirh-gestion-paie</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
@@ -36,6 +36,10 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 		</dependency>
 	</dependencies>
 
