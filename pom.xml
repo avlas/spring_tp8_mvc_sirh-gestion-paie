@@ -2,13 +2,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev</groupId>
-	<artifactId>spring_tp3_jdbc_sirh-gestion-paie</artifactId>
+	<artifactId>spring_tp4_orm_sirh-gestion-paie</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>4.12</junit.version>
+		<mysql.version>5.1.41</mysql.version>
+		<jpa.version>1.0.0.Final</jpa.version>
+		<entitymanager.version>5.1.0.Final</entitymanager.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -28,40 +31,59 @@
 	</build>
 
 	<dependencies>
-	
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
-		
-		<!-- Spring: context-->
+
+		<!-- Spring: context -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		
+
 		<!-- Spring : test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 		</dependency>
-		
-		<!-- Spring : jdbc -->				
+
+		<!-- Spring : jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 		</dependency>
-		
-		<!-- Connector JDBC -->	
+
+		<!-- Connector JDBC -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.41</version>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<!-- Spring : ORM -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+
+		<!-- API JPA -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>${jpa.version}</version>
+		</dependency>
+		
+		<!-- Implémentation JPA -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${entitymanager.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
-
 
 	<dependencyManagement>
 		<dependencies>
