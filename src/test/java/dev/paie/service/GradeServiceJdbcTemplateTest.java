@@ -1,7 +1,6 @@
 package dev.paie.service;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
@@ -25,6 +24,9 @@ public class GradeServiceJdbcTemplateTest {
 
 	@Autowired
 	private GradeService gradeService;
+	
+	@Autowired
+	Grade grade1;
 
 	@Before
 	public void setup() {
@@ -35,31 +37,37 @@ public class GradeServiceJdbcTemplateTest {
 	public void test_save_list_update() {
 		System.out.println(gradeService);
 
-		// Create a Grade
-		Grade newGrade = new Grade();
-		newGrade.setCode("G1");
-		newGrade.setNbHeuresBase(new BigDecimal("0.10"));
-		newGrade.setTauxBase(new BigDecimal("0.10"));
-		gradeService.save(newGrade);
+		// Create a Grade 
+//		Grade grade = new Grade();
+//		grade.setCode("G1");
+//		grade.setNbHeuresBase(new BigDecimal("0.10"));
+//		grade.setTauxBase(new BigDecimal("0.10"));
+//		gradeService.save(grade);		
+
+		// Use the bean "grade1", avec les valeurs qui sont dans jdd-config.xml
+		gradeService.save(grade1);									
+		System.out.println("AVANT = " + grade1.toString());
 		
 		// List all Grades
 		List<Grade> grades = gradeService.list();
-		assertTrue(grades.contains(newGrade));
+		System.out.println("APRES = " + grades.get(0).toString());
+		
+		assertTrue(grades.contains(grade1));
 		assertTrue(!grades.isEmpty());
 		assertEquals(1, gradeService.list().size());
 
 		// Update a Grade
 		if (!grades.isEmpty()) {
-			Grade gradeToUpdate = grades.get(0);
-			gradeToUpdate.setCode("G1");
-			gradeToUpdate.setNbHeuresBase(new BigDecimal("0.20"));
-			gradeToUpdate.setTauxBase(new BigDecimal("0.30"));
-			int rows = gradeService.update(gradeToUpdate);
+			grade1 = grades.get(0);
+			grade1.setCode("G1");
+			grade1.setNbHeuresBase(new BigDecimal("0.20"));
+			grade1.setTauxBase(new BigDecimal("0.30"));
+			int rows = gradeService.update(grade1);
 			assertEquals(1, rows);
 			
 			grades = gradeService.list();
-			assertTrue(gradeToUpdate.equals(grades.get(0)));
-			assertEquals(gradeToUpdate, grades.get(0));
+			assertTrue(grade1.equals(grades.get(0)));
+			assertEquals(grade1, grades.get(0));
 		}
 	}
 }

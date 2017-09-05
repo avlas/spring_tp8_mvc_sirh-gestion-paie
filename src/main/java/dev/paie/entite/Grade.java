@@ -68,5 +68,10 @@ public class Grade {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Grade [id=" + id + ", code=" + code + ", nbHeuresBase=" + nbHeuresBase + ", tauxBase=" + tauxBase + "]";
+	}
 
 }

@@ -11,11 +11,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.paie.config.JeuxDeDonneesConfig;
 import dev.paie.config.ServicesConfig;
+import dev.paie.config.spring.DataSourceMySQLConfig;
 import dev.paie.entite.BulletinSalaire;
 import dev.paie.entite.ResultatCalculRemuneration;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { ServicesConfig.class, JeuxDeDonneesConfig.class })
+@ContextConfiguration(classes = { ServicesConfig.class, JeuxDeDonneesConfig.class, DataSourceMySQLConfig.class })
 
 // Configuration JUnit pour que Spring prenne la main sur le cycle de vie du
 // test
@@ -34,11 +35,11 @@ public class CalculerRemunerationServiceSimpleTest {
 		// TODO remplacer null par un objet bulletin
 
 		ResultatCalculRemuneration resultat = remunerationService.calculer(bulletin);
-		assertThat(resultat.getSalaireBrut(), equalTo("2683.30"));
-		assertThat(resultat.getTotalRetenueSalarial(), equalTo("517.08"));
-		assertThat(resultat.getTotalCotisationsPatronales(), equalTo("1096.13"));
-		assertThat(resultat.getNetImposable(), equalTo("2166.22"));
-		assertThat(resultat.getNetAPayer(), equalTo("2088.41"));
+		assertThat(resultat.getSalaireBrut(), equalTo("2682.03"));
+		assertThat(resultat.getTotalRetenueSalarial(), equalTo("516.83"));
+		assertThat(resultat.getTotalCotisationsPatronales(), equalTo("1095.61"));
+		assertThat(resultat.getNetImposable(), equalTo("2165.20"));
+		assertThat(resultat.getNetAPayer(), equalTo("2087.43"));
 	}
 
 }
