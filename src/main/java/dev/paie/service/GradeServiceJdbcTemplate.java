@@ -57,7 +57,7 @@ public class GradeServiceJdbcTemplate implements GradeService {
 
 	@Override
 	public void truncateTable() {
-		String sql= "TRUNCATE TABLE grade;";
-		this.jdbcTemplate.execute(sql);
+		String sql= "TRUNCATE TABLE grade";
+		this.jdbcTemplate.update(sql);
 	}
 }

@@ -1,6 +1,7 @@
 package dev.paie.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
@@ -34,9 +35,6 @@ public class GradeServiceJdbcTemplateTest {
 	public void test_save_list_update() {
 		System.out.println(gradeService);
 
-		// List<Grade> grades = gradeService.list();
-		// assertTrue(grades.isEmpty());
-
 		// Create a Grade
 		Grade newGrade = new Grade();
 		newGrade.setCode("G1");
@@ -61,6 +59,7 @@ public class GradeServiceJdbcTemplateTest {
 			
 			grades = gradeService.list();
 			assertTrue(gradeToUpdate.equals(grades.get(0)));
+			assertEquals(gradeToUpdate, grades.get(0));
 		}
 	}
 }
