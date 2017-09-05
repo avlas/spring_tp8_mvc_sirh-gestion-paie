@@ -4,7 +4,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan({"dev.paie.entite", "dev.paie.service", "dev.paie.util"})
+@ComponentScan(basePackages = { "dev.paie.entite", "dev.paie.service", "dev.paie.util" })
 public class ServicesConfig {
-
 }
