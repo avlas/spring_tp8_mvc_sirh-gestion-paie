@@ -32,18 +32,17 @@ public class AvantageRepositoryTest {
 		Avantage avantageToCheck = avantageRepository.findOne(insertedAvantage.getId());
 		assertEquals(avantageToCheck, insertedAvantage);
 		
-		Avantage updatedAvantage = null;
 		if(avantageRepository.exists(insertedAvantage.getId())) {
 			insertedAvantage.setCode("AV02");
 			insertedAvantage.setNom("Av2");
 			insertedAvantage.setMontant(new BigDecimal("30.30"));	
-			updatedAvantage = avantageRepository.save(insertedAvantage);
+			Avantage updatedAvantage = avantageRepository.save(insertedAvantage);
+			
+			avantageToCheck = avantageRepository.findOne(updatedAvantage.getId());
+			assertEquals(updatedAvantage, avantageToCheck);
 		}
-
-		avantageToCheck = avantageRepository.findOne(updatedAvantage.getId());
-		assertEquals(updatedAvantage, avantageToCheck);
 		
-		Avantage avantageByCode = avantageRepository.findByCode("AV01");
+		Avantage avantageByCode = avantageRepository.findByCode("AV02");
 		assertEquals(avantageByCode, avantageToCheck);
 	}
 
