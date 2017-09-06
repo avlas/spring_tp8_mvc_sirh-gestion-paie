@@ -10,17 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dev.paie.config.JeuxDeDonneesConfig;
 import dev.paie.config.ServicesConfig;
 import dev.paie.entite.Avantage;
 
-@ContextConfiguration(classes = { ServicesConfig.class, JeuxDeDonneesConfig.class })
+@ContextConfiguration(classes = { ServicesConfig.class})
 @RunWith(SpringRunner.class)
 public class AvantageRepositoryTest {
 
 	@Autowired
 	private AvantageRepository avantageRepository;
-
+	
 	@Test
 	public void test_save_list_update() {
 		

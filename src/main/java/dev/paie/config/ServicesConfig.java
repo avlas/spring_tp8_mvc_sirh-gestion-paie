@@ -3,14 +3,13 @@ package dev.paie.config;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import dev.paie.config.jpa.JpaConfig;
-import dev.paie.config.spring.DataSourceMySQLConfig;
+import dev.paie.config.spring.data.jpa.DataJpaConfig;
+import dev.paie.config.spring.jdbc.mysql.MySQLDataSourceConfig;
+import dev.paie.config.spring.orm.jpa.JpaConfig;
 
 @Configuration
-@ComponentScan(basePackages = { "dev.paie.entite", "dev.paie.service", "dev.paie.util" })
-@Import({JpaConfig.class, DataSourceMySQLConfig.class})
-@EnableJpaRepositories("dev.paie.repository")
+@ComponentScan(basePackages = { "dev.paie.service", "dev.paie.util" })
+@Import({ DataJpaConfig.class, MySQLDataSourceConfig.class,  JpaConfig.class })
 public class ServicesConfig {
 }

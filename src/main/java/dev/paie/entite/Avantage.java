@@ -19,6 +19,14 @@ public class Avantage {
 	private String nom;
 	private BigDecimal montant;
 
+	
+	/**
+	 * 
+	 */
+	public Avantage() {
+		super();
+	}
+
 	public String getCode() {
 		return code;
 	}

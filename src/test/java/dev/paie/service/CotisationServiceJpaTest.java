@@ -12,24 +12,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dev.paie.config.JeuxDeDonneesConfig;
 import dev.paie.config.ServicesConfig;
-import dev.paie.config.jpa.JpaConfig;
 import dev.paie.entite.Cotisation;
 
-@ContextConfiguration(classes = { JpaConfig.class, ServicesConfig.class, JeuxDeDonneesConfig.class })
+@ContextConfiguration(classes = { ServicesConfig.class })
 @RunWith(SpringRunner.class)
 public class CotisationServiceJpaTest {
 
 	@Autowired
 	private CotisationService cotisationService;
 
-//	@Qualifier(value="sp01")
+//	@Qualifier("sp01")
 //	private Cotisation sp01Cotisation;
 	
 	@Test
 	public void test_save_list_update() {
-		//	cotisationService.save(sp01Cotisation);
+//		cotisationService.save(sp01Cotisation);
+//		
+//		List<Cotisation> cotisations1 = cotisationService.findAll();
+//		assertTrue(cotisations1.contains(sp01Cotisation));
+//		assertTrue(!cotisations1.isEmpty());
 		
 		Cotisation cotisation = new Cotisation();
 		cotisation.setCode("SP01");

@@ -1,4 +1,4 @@
-package dev.paie.config.spring;
+package dev.paie.config.spring.jdbc.mysql;
 
 import javax.sql.DataSource;
 
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
-public class DataSourceMySQLConfig {
+public class MySQLDataSourceConfig {
 
 	@Bean
 	public DataSource dataSource() {
