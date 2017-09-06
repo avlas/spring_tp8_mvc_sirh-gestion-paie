@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import dev.paie.config.spring.DataSourceMySQLConfig;
 
 @Configuration
-@Import(DataSourceMySQLConfig.class)
+//@Import(DataSourceMySQLConfig.class)
 @EnableTransactionManagement
 public class JpaConfig {
 	

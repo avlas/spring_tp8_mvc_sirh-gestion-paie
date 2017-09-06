@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev</groupId>
-	<artifactId>spring_tp4_orm_sirh-gestion-paie</artifactId>
+	<artifactId>spring_tp5_data_sirh-gestion-paie</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
@@ -75,13 +75,20 @@
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 			<version>${jpa.version}</version>
 		</dependency>
-		
+
 		<!-- Implémentation JPA -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${entitymanager.version}</version>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Spring - data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.11.3.RELEASE</version>
 		</dependency>
 	</dependencies>
 
