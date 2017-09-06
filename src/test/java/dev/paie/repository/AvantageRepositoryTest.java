@@ -23,24 +23,28 @@ public class AvantageRepositoryTest {
 	@Test
 	public void test_save_list_update() {
 		
-		Avantage avantage = new Avantage();
-		avantage.setCode("AV01");
-		avantage.setNom("Av1");
-		avantage.setMontant(new BigDecimal("40.40"));
-		avantageRepository.save(avantage);
+		Avantage avantageToInsert = new Avantage();
+		avantageToInsert.setCode("AV01");
+		avantageToInsert.setNom("Av1");
+		avantageToInsert.setMontant(new BigDecimal("40.40"));
+		Avantage insertedAvantage = avantageRepository.save(avantageToInsert);
 
-		Avantage av2 = avantageRepository.findOne(avantage.getId());
-		assertEquals(avantage, av2);
+		Avantage avantageToCheck = avantageRepository.findOne(insertedAvantage.getId());
+		assertEquals(avantageToCheck, insertedAvantage);
 		
-		if(avantageRepository.exists(avantage.getId())) {
-			avantage.setCode("AV02");
-			avantage.setNom("Av2");
-			avantage.setMontant(new BigDecimal("30.30"));	
-			avantageRepository.save(avantage);
+		Avantage updatedAvantage = null;
+		if(avantageRepository.exists(insertedAvantage.getId())) {
+			insertedAvantage.setCode("AV02");
+			insertedAvantage.setNom("Av2");
+			insertedAvantage.setMontant(new BigDecimal("30.30"));	
+			updatedAvantage = avantageRepository.save(insertedAvantage);
 		}
 
-		Avantage av3 = avantageRepository.findOne(avantage.getId());
-		assertEquals(avantage, av3);
+		avantageToCheck = avantageRepository.findOne(updatedAvantage.getId());
+		assertEquals(updatedAvantage, avantageToCheck);
+		
+		Avantage avantageByCode = avantageRepository.findByCode("AV01");
+		assertEquals(avantageByCode, avantageToCheck);
 	}
 
 }
