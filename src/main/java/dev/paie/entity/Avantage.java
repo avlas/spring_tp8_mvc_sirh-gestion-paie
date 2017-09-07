@@ -1,7 +1,8 @@
-package dev.paie.entite;
+package dev.paie.entity;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,14 +10,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="avantages")
+@Table(name="avantage")
 public class Avantage {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column
 	private String code;
+	
+	@Column
 	private String nom;
+	
+	@Column
 	private BigDecimal montant;
 
 	

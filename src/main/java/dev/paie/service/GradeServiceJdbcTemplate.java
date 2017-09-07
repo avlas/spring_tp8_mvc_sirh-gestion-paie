@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import dev.paie.entite.Grade;
+import dev.paie.entity.Grade;
 
 @Service
 public class GradeServiceJdbcTemplate implements GradeService {
@@ -26,7 +26,7 @@ public class GradeServiceJdbcTemplate implements GradeService {
 
 	@Override
 	public void save(Grade newGrade) {	
-		String sql= "INSERT INTO grade (gradeCode, nbHeuresBase, tauxBase) VALUES (?, ?, ?)";
+		String sql= "INSERT INTO grade (code, nbHeuresBase, tauxBase) VALUES (?, ?, ?)";
 
 		this.jdbcTemplate.update(sql, newGrade.getCode(), newGrade.getNbHeuresBase(), newGrade.getTauxBase());
 	}
@@ -45,19 +45,25 @@ public class GradeServiceJdbcTemplate implements GradeService {
 	
 	@Override
 	public int update(Grade grade) {
-		String sql= "UPDATE grade SET gradeCode=?, nbHeuresBase=?, tauxBase=? WHERE id=?";
+		String sql= "UPDATE grade SET code=?, nbHeuresBase=?, tauxBase=? WHERE id=?";
 		return this.jdbcTemplate.update(sql, grade.getCode(), grade.getNbHeuresBase(), grade.getTauxBase(), grade.getId());		
 	}
 	
 //	@Override
 //	public void createTable() {
-//		String sql= "CREATE TABLE IF NOT EXISTS Grade(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, gradeCode VARCHAR(100), nbHeuresBase DECIMAL(10,2), tauxBase DECIMAL(10,2) );";
+//		String sql= "CREATE TABLE IF NOT EXISTS Grade(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, code VARCHAR(100), nbHeuresBase DECIMAL(10,2), tauxBase DECIMAL(10,2) );";
 //		this.jdbcTemplate.execute(sql);
 //	}
 
 	@Override
 	public void truncateTable() {
-		String sql= "TRUNCATE TABLE grade";
-		this.jdbcTemplate.update(sql);
+		
+//		String sqlTableExistence = "SELECT table_name FROM information_schema.tables WHERE table_schema = \'spring-jdbc-sirh-paie\' AND table_name = \'grade\' ";
+//		this.jdbcTemplate.execute(sqlTableExistence);
+				
+		//String sql= "TRUNCATE TABLE IF EXISTS grade";
+		
+//		String sql= "TRUNCATE TABLE IF EXISTS grade";
+//		this.jdbcTemplate.update(sql);
 	}
 }

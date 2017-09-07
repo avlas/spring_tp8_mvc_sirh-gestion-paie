@@ -1,4 +1,4 @@
-package dev.paie.entite;
+package dev.paie.entity;
 
 public class ResultatCalculRemuneration {
 	private String salaireDeBase;

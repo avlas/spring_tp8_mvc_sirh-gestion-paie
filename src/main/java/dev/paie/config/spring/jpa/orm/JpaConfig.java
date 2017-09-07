@@ -1,4 +1,4 @@
-package dev.paie.config.spring.orm.jpa;
+package dev.paie.config.spring.jpa.orm;
 
 import java.util.Properties;
 
@@ -15,7 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "dev.paie.entite"})
+@ComponentScan(basePackages = { "dev.paie.entity"})
 @EnableTransactionManagement
 public class JpaConfig {
 	
@@ -38,7 +38,7 @@ public class JpaConfig {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 		factory.setJpaVendorAdapter(vendorAdapter);
 		// alternative au persistence.xml
-		factory.setPackagesToScan("dev.paie.entite");
+		factory.setPackagesToScan("dev.paie.entity");
 		factory.setDataSource(dataSource);
 		
 		Properties jpaProperties = new Properties();

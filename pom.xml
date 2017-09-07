@@ -2,22 +2,26 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev</groupId>
-	<artifactId>spring_tp5_data_sirh-gestion-paie</artifactId>
+	<artifactId>spring_tp8_mvc_sirh-gestion-paie</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<junit.version>4.12</junit.version>
-		<mysql.version>5.1.41</mysql.version>
-		<jpa.version>1.0.0.Final</jpa.version>
-		<entitymanager.version>5.1.0.Final</entitymanager.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<hibernate.java8.version>5.0.2.Final</hibernate.java8.version>
+		<javax.servlet.version>3.1.0</javax.servlet.version>
+		<spring.data.version>1.11.3.RELEASE</spring.data.version>
+		<jpa.version>1.0.0.Final</jpa.version>
+		<hibernate.core.version>5.2.8.Final</hibernate.core.version>
+		<mysql.version>5.1.41</mysql.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 
 	<build>
 		<finalName>paie</finalName>
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -31,11 +35,75 @@
 	</build>
 
 	<dependencies>
-		<!-- JUnit -->
+
+		<!-- Hibernate CORE pour des Objects qui ont Java8 LocalDate -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+			<version>${hibernate.java8.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<!-- JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- API Servlets - JSP -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Spring Data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.version}</version>
+		</dependency>
+
+		<!-- Spring ORM -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+
+		<!-- Spring ORM : API JPA -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>${jpa.version}</version>
+		</dependency>
+
+		<!-- Spring ORM : Implémentation JPA -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.core.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Spring JDBC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+
+		<!-- Spring JDBC : Connector JDBC -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 
 		<!-- Spring: context -->
@@ -50,45 +118,11 @@
 			<artifactId>spring-test</artifactId>
 		</dependency>
 
-		<!-- Spring : jdbc -->
+		<!-- JUnit -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-		</dependency>
-
-		<!-- Connector JDBC -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
-		</dependency>
-
-		<!-- Spring : ORM -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-		</dependency>
-
-		<!-- API JPA -->
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<version>${jpa.version}</version>
-		</dependency>
-
-		<!-- Implémentation JPA -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${entitymanager.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- Spring - data -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>1.11.3.RELEASE</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -103,4 +137,5 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 </project>

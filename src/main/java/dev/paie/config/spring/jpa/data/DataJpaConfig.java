@@ -1,4 +1,4 @@
-package dev.paie.config.spring.data.jpa;
+package dev.paie.config.spring.jpa.data;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

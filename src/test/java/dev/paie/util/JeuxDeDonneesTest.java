@@ -13,8 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import dev.paie.entite.BulletinSalaire;
-import dev.paie.entite.Cotisation;
+import dev.paie.entity.BulletinSalaire;
+import dev.paie.entity.Cotisation;
 
 public class JeuxDeDonneesTest {
 
@@ -65,7 +65,7 @@ public class JeuxDeDonneesTest {
 	@Test
 	public void test_grade() {
 		assertThat(bulletin1.getRemunerationEmploye().getGrade().getNbHeuresBase(), equalTo(new BigDecimal("151.67")));
-		assertThat(bulletin1.getRemunerationEmploye().getGrade().getTauxBase(), equalTo(new BigDecimal("11.0984")));
+		assertThat(bulletin1.getRemunerationEmploye().getGrade().getTauxBase(), equalTo(new BigDecimal("11.09")));
 
 	}
 

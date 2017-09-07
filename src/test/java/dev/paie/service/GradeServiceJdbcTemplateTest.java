@@ -14,10 +14,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.paie.config.JeuxDeDonneesConfig;
-import dev.paie.config.ServicesConfig;
-import dev.paie.entite.Grade;
+import dev.paie.config.spring.jdbc.mysql.MySQLDataSourceConfig;
+import dev.paie.config.spring.jpa.orm.JpaConfig;
+import dev.paie.config.spring.service.ServicesConfig;
+import dev.paie.entity.Grade;
 
-@ContextConfiguration(classes = { ServicesConfig.class, JeuxDeDonneesConfig.class })
+@ContextConfiguration(classes = { ServicesConfig.class, JpaConfig.class, MySQLDataSourceConfig.class, JeuxDeDonneesConfig.class })
 @RunWith(SpringRunner.class)
 public class GradeServiceJdbcTemplateTest {
 

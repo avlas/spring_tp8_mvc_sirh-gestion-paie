@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dev.paie.entite.Cotisation;
+import dev.paie.entity.Cotisation;
 
 @Service
 public class CotisationServiceJpa implements CotisationService {

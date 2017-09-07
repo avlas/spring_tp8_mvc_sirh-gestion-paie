@@ -1,7 +1,7 @@
 package dev.paie.service;
 
-import dev.paie.entite.BulletinSalaire;
-import dev.paie.entite.ResultatCalculRemuneration;
+import dev.paie.entity.BulletinSalaire;
+import dev.paie.entity.ResultatCalculRemuneration;
 
 public interface CalculerRemunerationService {
 	

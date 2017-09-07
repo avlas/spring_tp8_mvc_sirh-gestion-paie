@@ -7,10 +7,10 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dev.paie.entite.BulletinSalaire;
-import dev.paie.entite.Cotisation;
-import dev.paie.entite.Grade;
-import dev.paie.entite.ResultatCalculRemuneration;
+import dev.paie.entity.BulletinSalaire;
+import dev.paie.entity.Cotisation;
+import dev.paie.entity.Grade;
+import dev.paie.entity.ResultatCalculRemuneration;
 import dev.paie.util.PaieUtils;
 
 @Service

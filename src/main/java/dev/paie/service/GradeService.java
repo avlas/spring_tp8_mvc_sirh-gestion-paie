@@ -2,7 +2,7 @@ package dev.paie.service;
 
 import java.util.List;
 
-import dev.paie.entite.Grade;
+import dev.paie.entity.Grade;
 
 public interface GradeService {
 	

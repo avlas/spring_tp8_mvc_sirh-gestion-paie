@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dev.paie.config.ServicesConfig;
-import dev.paie.entite.Avantage;
+import dev.paie.config.spring.jdbc.mysql.MySQLDataSourceConfig;
+import dev.paie.config.spring.jpa.data.DataJpaConfig;
+import dev.paie.config.spring.jpa.orm.JpaConfig;
+import dev.paie.entity.Avantage;
 
-@ContextConfiguration(classes = { ServicesConfig.class})
+@ContextConfiguration(classes = { DataJpaConfig.class, JpaConfig.class, MySQLDataSourceConfig.class})
 @RunWith(SpringRunner.class)
 public class AvantageRepositoryTest {
 

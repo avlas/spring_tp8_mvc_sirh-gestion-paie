@@ -9,29 +9,34 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dev.paie.config.ServicesConfig;
-import dev.paie.entite.Cotisation;
+import dev.paie.config.JeuxDeDonneesConfig;
+import dev.paie.config.spring.jdbc.mysql.MySQLDataSourceConfig;
+import dev.paie.config.spring.jpa.orm.JpaConfig;
+import dev.paie.config.spring.service.ServicesConfig;
+import dev.paie.entity.Cotisation;
 
-@ContextConfiguration(classes = { ServicesConfig.class })
+@ContextConfiguration(classes = { ServicesConfig.class, JpaConfig.class, MySQLDataSourceConfig.class, JeuxDeDonneesConfig.class })
 @RunWith(SpringRunner.class)
 public class CotisationServiceJpaTest {
 
 	@Autowired
 	private CotisationService cotisationService;
 
-//	@Qualifier("sp01")
-//	private Cotisation sp01Cotisation;
+	@Autowired
+	@Qualifier("sp01")
+	private Cotisation sp01Cotisation;
 	
 	@Test
 	public void test_save_list_update() {
-//		cotisationService.save(sp01Cotisation);
-//		
-//		List<Cotisation> cotisations1 = cotisationService.findAll();
-//		assertTrue(cotisations1.contains(sp01Cotisation));
-//		assertTrue(!cotisations1.isEmpty());
+		cotisationService.save(sp01Cotisation);
+		
+		List<Cotisation> cotisations1 = cotisationService.findAll();
+		assertTrue(cotisations1.contains(sp01Cotisation));
+		assertTrue(!cotisations1.isEmpty());
 		
 		Cotisation cotisation = new Cotisation();
 		cotisation.setCode("SP01");
