@@ -7,32 +7,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="avantage")
+@Table(name="AVANTAGES")
 public class Avantage {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
+	@Column(name="CODE")
 	private String code;
 	
-	@Column
+	@Column(name="NOM")
 	private String nom;
 	
-	@Column
+	@Column(name="MONTANT")
 	private BigDecimal montant;
-
 	
-	/**
-	 * 
-	 */
-	public Avantage() {
-		super();
-	}
+	@ManyToOne
+	@JoinColumn(name="PRF_ID")
+	private ProfilRemuneration profilRemuneration;
 
 	public String getCode() {
 		return code;
@@ -65,43 +63,4 @@ public class Avantage {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((code == null) ? 0 : code.hashCode());
-		result = prime * result + ((montant == null) ? 0 : montant.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Avantage other = (Avantage) obj;
-		if (code == null) {
-			if (other.code != null)
-				return false;
-		} else if (!code.equals(other.code))
-			return false;
-		if (montant == null) {
-			if (other.montant != null)
-				return false;
-		} else if (!montant.equals(other.montant))
-			return false;
-		if (nom == null) {
-			if (other.nom != null)
-				return false;
-		} else if (!nom.equals(other.nom))
-			return false;
-		return true;
-	}
-	
-	
 }

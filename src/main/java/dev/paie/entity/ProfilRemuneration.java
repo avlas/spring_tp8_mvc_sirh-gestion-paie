@@ -4,43 +4,43 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name="profil_remuneration")
+@Table(name = "PROFILS")
 public class ProfilRemuneration {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column
+
+	@Column(name = "CODE")
 	private String code;
 
-	@OneToMany
-	@JoinColumn(foreignKey = @ForeignKey(name="FK_PROFIL_RENUM_COT_NONIMPO_ID"))
+	@ManyToMany
+	@JoinTable(name = "PRF_COT_NOT_IMP", 
+		joinColumns = @JoinColumn(name = "ID_PRF", referencedColumnName = "ID"), 
+		inverseJoinColumns = @JoinColumn(name = "COT_ID", referencedColumnName = "ID")
+	)
 	private List<Cotisation> cotisationsNonImposables;
-	
-	@OneToMany
-	@JoinColumn(foreignKey = @ForeignKey(name="FK_PROFIL_RENUM_COT_IMPO_ID"))
-	private List<Cotisation> cotisationsImposables;
-	
-	@OneToMany
-	@JoinColumn(foreignKey = @ForeignKey(name="FK_PROFIL_AVANTAGE_ID"))
-	private List<Avantage> avantages;
 
-	/**
-	 * 
-	 */
-	public ProfilRemuneration() {
-		super();
-	}
+	@ManyToMany
+	@JoinTable(name = "PRF_COT_IMP", joinColumns =
+	@JoinColumn(name = "ID_PRF", referencedColumnName = "ID"), 
+		inverseJoinColumns = @JoinColumn(name = "COT_ID", referencedColumnName = "ID")
+	)
+	private List<Cotisation> cotisationsImposables;
+
+	@OneToMany(mappedBy = "profilRemuneration")
+	private List<Avantage> avantages;
 
 	public Integer getId() {
 		return id;

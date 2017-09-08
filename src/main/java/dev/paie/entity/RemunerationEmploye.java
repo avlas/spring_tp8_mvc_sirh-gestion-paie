@@ -5,36 +5,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="remuneration")
+@Table(name="EMPLOYES")
 public class RemunerationEmploye {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
+	@Column(name="MATRICULE")
 	private String matricule;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="ENT_ID")
 	private Entreprise entreprise;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="PRF_ID")
 	private ProfilRemuneration profilRemuneration;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="GRD_ID")
 	private Grade grade;
-	
-	
-	/**
-	 * 
-	 */
-	public RemunerationEmploye() {
-		super();
-	}
 	
 	public String getMatricule() {
 		return matricule;

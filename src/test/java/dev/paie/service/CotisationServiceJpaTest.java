@@ -14,8 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.paie.config.JeuxDeDonneesConfig;
-import dev.paie.config.spring.jdbc.mysql.MySQLDataSourceConfig;
 import dev.paie.config.spring.jpa.orm.JpaConfig;
+import dev.paie.config.spring.jpa.orm.jdbc.mysql.MySQLDataSourceConfig;
 import dev.paie.config.spring.service.ServicesConfig;
 import dev.paie.entity.Cotisation;
 

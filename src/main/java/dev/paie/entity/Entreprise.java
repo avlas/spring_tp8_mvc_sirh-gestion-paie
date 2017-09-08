@@ -8,35 +8,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="entreprise")
+@Table(name="ENTREPRISES")
 public class Entreprise {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
+	@Column(name="SIRET")
 	private String siret;
 	
-	@Column
+	@Column(name="DENOMINATION")
 	private String denomination;
 	
-	@Column
+	@Column(name="ADRESSE")
 	private String adresse;
 	
-	@Column
+	@Column(name="URSSAF")
 	private String urssaf;
 	
-	@Column
+	@Column(name="CODE_NAF")
 	private String codeNaf;
-	
-	
-	/**
-	 * 
-	 */
-	public Entreprise() {
-		super();
-	}
 	
 	public String getDenomination() {
 		return denomination;

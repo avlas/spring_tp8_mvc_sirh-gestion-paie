@@ -1,4 +1,4 @@
-package dev.paie.config.spring.jdbc.mysql;
+package dev.paie.config.spring.jpa.orm.jdbc.mysql;
 
 import javax.sql.DataSource;
 

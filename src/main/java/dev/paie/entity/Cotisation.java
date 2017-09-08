@@ -10,29 +10,47 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cotisation")
+@Table(name="COTISATIONS")
 public class Cotisation {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
+	@Column(name="CODE")
 	private String code;
 	
-	@Column
+	@Column(name="LIBELLE")
 	private String libelle;
 	
-	@Column
+	@Column(name="TX_SALARIAL")
 	private BigDecimal tauxSalarial;
 	
-	@Column
+	@Column(name="TX_PATRONAL")
 	private BigDecimal tauxPatronal;
 	
 	
-	public Cotisation() {
-		super();
+	/**
+	 * Default Entity constructor
+	 */
+	public Cotisation(){
+		
 	}
+	
+	/**
+	 * @param code
+	 * @param libelle
+	 * @param tauxSalarial
+	 * @param tauxPatronal
+	 */
+	public Cotisation(String code, String libelle, BigDecimal tauxSalarial, BigDecimal tauxPatronal) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		this.tauxSalarial = tauxSalarial;
+		this.tauxPatronal = tauxPatronal;
+	}
+
 	
 	public String getCode() {
 		return code;
@@ -66,47 +84,4 @@ public class Cotisation {
 		this.id = id;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((code == null) ? 0 : code.hashCode());
-		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
-		result = prime * result + ((tauxPatronal == null) ? 0 : tauxPatronal.hashCode());
-		result = prime * result + ((tauxSalarial == null) ? 0 : tauxSalarial.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cotisation other = (Cotisation) obj;
-		if (code == null) {
-			if (other.code != null)
-				return false;
-		} else if (!code.equals(other.code))
-			return false;
-		if (libelle == null) {
-			if (other.libelle != null)
-				return false;
-		} else if (!libelle.equals(other.libelle))
-			return false;
-		if (tauxPatronal == null) {
-			if (other.tauxPatronal != null)
-				return false;
-		} else if (!tauxPatronal.equals(other.tauxPatronal))
-			return false;
-		if (tauxSalarial == null) {
-			if (other.tauxSalarial != null)
-				return false;
-		} else if (!tauxSalarial.equals(other.tauxSalarial))
-			return false;
-		return true;
-	}
-	
 }

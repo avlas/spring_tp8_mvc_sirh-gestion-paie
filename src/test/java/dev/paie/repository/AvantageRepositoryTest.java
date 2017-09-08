@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dev.paie.config.spring.jdbc.mysql.MySQLDataSourceConfig;
 import dev.paie.config.spring.jpa.data.DataJpaConfig;
 import dev.paie.config.spring.jpa.orm.JpaConfig;
+import dev.paie.config.spring.jpa.orm.jdbc.mysql.MySQLDataSourceConfig;
 import dev.paie.entity.Avantage;
 
 @ContextConfiguration(classes = { DataJpaConfig.class, JpaConfig.class, MySQLDataSourceConfig.class})
