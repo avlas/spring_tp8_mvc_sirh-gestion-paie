@@ -47,8 +47,8 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 	@Autowired
 	private PeriodeRepository periodeRepository;
 
-	@Autowired
-	private List<Periode> periodes;
+//	@Autowired
+//	private List<Periode> periodes;
 
 	@Autowired
 	private ProfilRemunerationRepository profilRemunerationRepository;
