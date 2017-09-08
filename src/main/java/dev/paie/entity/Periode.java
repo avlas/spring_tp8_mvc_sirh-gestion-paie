@@ -42,27 +42,33 @@ public class Periode {
 		this.dateFin = dateDebut.withDayOfMonth(dateDebut.lengthOfMonth());
 	}
 	
-	public LocalDate getDateDebut() {
-		return dateDebut;
-	}
-	public void setDateDebut(LocalDate dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-	public LocalDate getDateFin() {
-		return dateFin;
-	}
-	public void setDateFin(LocalDate dateFin) {
-		this.dateFin = dateFin;
-	}
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
 	
+	public LocalDate getDateDebut() {
+		return dateDebut;
+	}
 	
+	public void setDateDebut(LocalDate dateDebut) {
+		this.dateDebut = dateDebut;
+	}
 	
+	public LocalDate getDateFin() {
+		return dateFin;
+	}
 	
+	public void setDateFin(LocalDate dateFin) {
+		this.dateFin = dateFin;
+	}
 
+	@Override
+	public String toString() {
+		return "Periode [id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + "]";
+	}
+	
 }

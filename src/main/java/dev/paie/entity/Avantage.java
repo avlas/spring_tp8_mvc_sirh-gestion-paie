@@ -32,6 +32,22 @@ public class Avantage {
 	@JoinColumn(name="PRF_ID")
 	private ProfilRemuneration profilRemuneration;
 
+
+	/**
+	 * 
+	 */
+	public Avantage() {
+		super();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public String getCode() {
 		return code;
 	}
@@ -56,11 +72,4 @@ public class Avantage {
 		this.montant = montant;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 }

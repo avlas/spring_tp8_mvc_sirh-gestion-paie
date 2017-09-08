@@ -23,7 +23,9 @@ import dev.paie.repository.RemunerationEmployeRepository;
 
 @Service
 // Marque un bean de configuration Spring
-@ImportResource({ "classpath:jdd-config.xml" })
+@ImportResource({ "classpath:entreprises.xml", 
+	"classpath:grades.xml", 
+	"classpath:profils-remuneration.xml"})
 public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 
 	@Autowired
@@ -56,17 +58,17 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 	@Autowired
 	private List<ProfilRemuneration> profils;
 
-	@Autowired
-	private BulletinSalaireRepository bulletinSalaireRepository;
-
-	@Autowired
-	private List<BulletinSalaire> bulletins;
-
-	@Autowired
-	private RemunerationEmployeRepository renumerationEmployeRepository;
-
-	@Autowired
-	private List<RemunerationEmploye> remunerations;
+//	@Autowired
+//	private BulletinSalaireRepository bulletinSalaireRepository;
+//
+//	@Autowired
+//	private List<BulletinSalaire> bulletins;
+//
+//	@Autowired
+//	private RemunerationEmployeRepository renumerationEmployeRepository;
+//
+//	@Autowired
+//	private List<RemunerationEmploye> remunerations;
 
 	// @Autowired
 	// private AvantageRepository avantageRepository;
@@ -94,14 +96,14 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 		for (ProfilRemuneration profil : profils) {
 			profilRemunerationRepository.save(profil);
 		}
-
-		for (RemunerationEmploye remuneration : remunerations) {
-			renumerationEmployeRepository.save(remuneration);
-		}
-
-		for (BulletinSalaire bulletin : bulletins) {
-			bulletinSalaireRepository.save(bulletin);
-		}
+//
+//		for (RemunerationEmploye remuneration : remunerations) {
+//			renumerationEmployeRepository.save(remuneration);
+//		}
+//
+//		for (BulletinSalaire bulletin : bulletins) {
+//			bulletinSalaireRepository.save(bulletin);
+//		}
 
 		// for (Avantage avantage : avantages) {
 		// avantageRepository.save(avantage);

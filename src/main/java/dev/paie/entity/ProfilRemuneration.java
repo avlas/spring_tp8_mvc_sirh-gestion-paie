@@ -12,7 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "PROFILS")
@@ -41,6 +40,14 @@ public class ProfilRemuneration {
 
 	@OneToMany(mappedBy = "profilRemuneration")
 	private List<Avantage> avantages;
+
+	
+	/**
+	 * 
+	 */
+	public ProfilRemuneration() {
+		super();
+	}
 
 	public Integer getId() {
 		return id;
@@ -81,5 +88,4 @@ public class ProfilRemuneration {
 	public void setAvantages(List<Avantage> avantages) {
 		this.avantages = avantages;
 	}
-
 }
