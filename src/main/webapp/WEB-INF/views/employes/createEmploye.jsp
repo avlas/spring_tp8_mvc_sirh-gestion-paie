@@ -2,17 +2,7 @@
 	language="java" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-		<title>PAIE</title>
-	</head>
-	
-	<body>
-	
-		<h1>Ajouter un employe</h1>
+<%@include file="../../../header.jsp" %>
 		
 		<form method="post" action="http://localhost:8080/paie/mvc/employes/create">
 			Matricule : 
@@ -49,9 +39,7 @@
 			<button type="submit">Ajouter</button>
 			
 		</form>
-	
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-	</body>
-</html>
+
+<%@include file="../../../footer.jsp" %>
 
 

@@ -73,7 +73,7 @@ public class BulletinSalaireController {
 		
 		Periode periode = periodeRepository.findOne(new Integer(request.getParameter("periodeId")));
 		
-		BulletinSalaire bulletinSalaire = new BulletinSalaire(remunerationEmploye, periode, new BigDecimal(request.getParameter("prime")), LocalDateTime.now());
+		BulletinSalaire bulletinSalaire = new BulletinSalaire(remunerationEmploye, periode, BigDecimal.valueOf(Double.parseDouble(request.getParameter("prime"))), LocalDateTime.now());
 		bulletinSalaireRepository.save(bulletinSalaire);
 		
 		return listBulletins();
@@ -84,7 +84,6 @@ public class BulletinSalaireController {
 	public ModelAndView listBulletin() {
 		return listBulletins();
 	}
-	
 	
 	protected ModelAndView listBulletins() {
 		ModelAndView mv = new ModelAndView();
